@@ -1,0 +1,82 @@
+body {
+    background: url(https://r4.wallpaperflare.com/wallpaper/336/163/715/honeycombs-abstract-minimalism-simple-background-wallpaper-d920b8ad413addab86a7d87fe01166ad.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.navbarClass {
+    background-color: #000;
+    font-family: 'Teko';
+    font-size: 3rem;
+    font-weight: 700;
+    color: #66686b;
+    text-align: center;
+}
+
+
+.attributes {
+    min-height: 91vh;
+}
+
+.profile {
+    min-height: 55.5vh;
+}
+
+.perks {
+    min-height: 35.5vh;
+}
+
+.archetypes {
+    min-height: 35.5vh;
+}
+
+.part {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid black;
+    height: 100%;
+    color: #66686b;
+}
+
+.part-title {
+    font-family: 'Teko';
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+#overallPart {
+    font-family: 'Teko';
+    font-size: 8rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#circle {
+    border: 10px solid #66686b;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px; 
+    text-align: center;
+    position: absolute;
+}
+
+#overall {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.footerClass {
+    background-color: #000;
+    font-family: 'Teko';
+    font-size: 1.2rem;
+    padding: 0.1rem;
+    font-weight: 400;
+    color: #66686b;
+    text-align: center;
+}
+
