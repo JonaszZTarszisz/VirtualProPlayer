@@ -19,37 +19,95 @@
 
     <main class="container">
         <div class="row">
-            <div class="col-sm-6 attributes p-2">
-                <div class="part">
-                    <div class="part-title">ATTRIBUTES</div>
+            <div class="col-md-6 attributes g-3">
+                <div class="part" role="button">
+                    <div class="big-title">ATTRIBUTES</div>
                     <div id="overallPart">
                         <span id="overall">80</span>
                         <div id="circle"></div>
                     </div>
+                    <div class="mt-3 p-2" id="attributesProgressGroup">
+                        <div class="skillProgress">
+                            <p class="skillName">Physcial</p>
+                            <p><progress value="80" min="0" max="100"></progress></p>
+                            <p class="skillRating">95</p>
+                        </div>
+                        <div class="skillProgress">
+                            <p class="skillName">Defending</p>
+                            <p><progress value="40" min="0" max="100"></progress></p>
+                            <p class="skillRating">95</p>
+                        </div>
+                        <div class="skillProgress">
+                            <p class="skillName">Dribbling</p>
+                            <p><progress value="92" min="0" max="100"></progress></p>
+                            <p class="skillRating">95</p>
+                        </div>
+                        <div class="skillProgress">
+                            <p class="skillName">Passing</p>
+                            <p><progress value="83" min="0" max="100"></progress></p>
+                            <p class="skillRating">95</p>
+                        </div>
+                        <div class="skillProgress">
+                            <p class="skillName">Pace</p>
+                            <p><progress value="95" min="0" max="100"></progress></p>
+                            <p class="skillRating">91</p>
+                        </div>
+                        <div class="skillProgress">
+                            <p class="skillName">Shotting</p>
+                            <p><progress value="95" min="0" max="100"></progress></p>
+                            <p class="skillRating">89</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <div class="row">
-                    <div class="col-sm-12 profile p-2">
+                    <div class="col-md-12 profile g-3">
                         <div class="part">
-                            <div class="part-title">PROFILE</div>
+                            <div class="big-title">PROFILE</div>
+                            <div id="profileSelect">
+                                <div class="selectItem">
+                                    <p class="selectName">Play Style Name</p>
+                                    <div class="selectValue">
+                                        <p class="stepPrevious" role="button">&#60</p>
+                                        <p class="value">ST</p>
+                                        <p class="stepNext" role="button">&#62</p>
+                                    </div>
+                                </div>
+                                <div class="selectItem">
+                                    <p class="selectName">Height</p>
+                                    <div class="selectValue">
+                                        <p class="stepPrevious" role="button">&#60</p>
+                                        <p class="value">180</p>
+                                        <p class="stepNext" role="button">&#62</p>
+                                    </div>
+                                </div>
+                                <div class="selectItem">
+                                    <p class="selectName">Weight</p>
+                                    <div class="selectValue">
+                                        <p class="stepPrevious" role="button">&#60</p>
+                                        <p class="value">75</p>
+                                        <p class="stepNext" role="button">&#62</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 archetypes p-2">
+                    <div class="col-md-6 archetypes g-3">
                         <div class="part">
-                            <div class="part-title">ARCHETYPES</div>
+                            <div class="small-title">ARCHETYPES</div>
                         </div>
                     </div>
-                    <div class="col-sm-6 perks p-2">
+                    <div class="col-md-6 perks g-3">
                         <div class="part">
-                            <div class="part-title">PERKS</div>
+                            <div class="small-title">PERKS</div>
                         </div>
                     </div>
              </div>
         </div>
     </main>
 
-    <footer class="footerClass ">
+    <footer class="footerClass mt-3">
         <div style="text-align: center;" class="container">
             <span>Witam i żegnam</span>
         </div>

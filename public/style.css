@@ -14,19 +14,19 @@ body {
 
 
 .attributes {
-    min-height: 91vh;
+    min-height: 82vh;
 }
 
 .profile {
-    min-height: 55.5vh;
+    min-height: 46vh;
 }
 
 .perks {
-    min-height: 35.5vh;
+    min-height: 36vh;
 }
 
 .archetypes {
-    min-height: 35.5vh;
+    min-height: 36vh;
 }
 
 .part {
@@ -36,45 +36,135 @@ body {
     color: #66686b;
 }
 
-.part-title {
+.part:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #006eff;
+    height: 100%;
+    color: black;
+}
+
+.big-title {
+    font-family: 'Teko';
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+.small-title {
     font-family: 'Teko';
     text-align: center;
     font-size: 3rem;
     font-weight: 400;
-    margin-top: 1rem;
+    margin: 1rem;
 }
+
 
 #overallPart {
     font-family: 'Teko';
     font-size: 8rem;
     font-weight: 400;
-    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    /*border: 1px solid white;*/
+    position: relative;
+    min-height: 180px;
 }
 
 #circle {
-    border: 10px solid #66686b;
+    border: 8px solid #006eff;
     border-radius: 50%;
-    width: 150px;
-    height: 150px; 
+    width: 160px;
+    height: 160px; 
     text-align: center;
     position: absolute;
 }
 
+
 #overall {
     display: flex;
     justify-content: center;
+    text-align: center;
+    position: absolute;
     margin-top: 16px;
+}
+
+.skillProgress {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: 10px 50px;
+    font-weight: bold;
+}
+
+.skillName {
+    min-width: 120px;
+}
+
+.skillProgress progress {
+    background-color: #66686b;
+    border-radius: 10px;
+    margin-top: 4px;
+    height: 20px;
+    max-width: 300px;
+}
+
+.skillProgress progress::-webkit-progress-value {
+    background-color: #006eff;
+    border-radius: 10px;
+}
+
+.skillProgress progress::-webkit-progress-bar {
+    background-color: #66686b;
+    border-radius: 10px;
+}
+
+#profileSelect {
+    margin-top: 30px;
+}
+
+.selectItem {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 8px 50px;
+    align-items: center;
+}
+
+.selectItem:hover {
+    background-color:  rgba(0, 0, 0, 0.85);
+    color: #66686b;
+    border-top: 1px solid #006eff;
+    border-bottom: 1px solid #006eff;
+}
+
+.selectName {
+    margin-top: 8px;
+}
+
+.stepPrevious:hover {
+    color: #006eff;
+}
+
+.stepNext:hover {
+    color: #006eff;
+}
+
+.selectValue {
+    display: flex;
+    margin-top: 8px;
+    gap: 10px;
+    
 }
 
 .footerClass {
     background-color: #000;
     font-family: 'Teko';
-    font-size: 1.2rem;
-    padding: 0.1rem;
+    font-size: 1.4rem;
+    padding: 0.43rem;
     font-weight: 400;
     color: #66686b;
     text-align: center;
