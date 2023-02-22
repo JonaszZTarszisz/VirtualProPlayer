@@ -31,14 +31,14 @@ body {
 
 .part {
     background-color: rgba(0, 0, 0, 0.6);
-    border: 1px solid black;
+    border: 1px solid #66686b;
     height: 100%;
     color: #66686b;
 }
 
 .part:hover {
     background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid #006eff;
+    border: 1px solid black;
     height: 100%;
     color: black;
 }
@@ -137,13 +137,21 @@ body {
 .selectItem:hover {
     background-color:  rgba(0, 0, 0, 0.85);
     color: #66686b;
-    border-top: 1px solid #006eff;
-    border-bottom: 1px solid #006eff;
 }
 
 .selectName {
     margin-top: 8px;
 }
+
+.selectValue {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin-top: 8px;
+    gap: 8px;
+    text-align: center;
+}
+
 
 .stepPrevious:hover {
     color: #006eff;
@@ -153,12 +161,7 @@ body {
     color: #006eff;
 }
 
-.selectValue {
-    display: flex;
-    margin-top: 8px;
-    gap: 10px;
-    
-}
+
 
 .footerClass {
     background-color: #000;
