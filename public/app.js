@@ -48,7 +48,4 @@ window.onload = function() {
         weight.innerHTML = +value + 1;
     })
 
-
-                         
-
 }
