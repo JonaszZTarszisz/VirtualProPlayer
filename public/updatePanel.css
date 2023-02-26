@@ -5,16 +5,21 @@
     color: #66686b;
     margin-top: 10px;
     min-height: 84vh;
+    font-family: 'Teko';
 }
 
 #navbarUpdatePanel {
     gap: 10px;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
 .nav-link{
     color: #66686b;
+}
+
+.buffPart {
+    height: 70vh;
 }
 
 .storey {
@@ -34,7 +39,7 @@
 }
 
 .buffSkillNamePart {
-
+    justify-content: center;
 }
 
 .buffSkillName {
@@ -43,15 +48,13 @@
     height: 27px;
 }
 
-
-
 .skillAreola {
-        border: 4px solid #66686b;
-        border-radius: 50%;
-        width: 85px;
-        height: 85px; 
-        text-align: center;
-        position: absolute;
+    border: 4px solid #66686b;
+    border-radius: 50%;
+    width: 85px;
+    height: 85px; 
+    text-align: center;
+    position: absolute;
 }
 
 .lineDown {
@@ -62,6 +65,7 @@
     bottom: 0;
     background-color: #66686b;
 }
+
 .lineTopRight {
     position: absolute;
     content: "";
@@ -71,6 +75,7 @@
     right: 0;
     background-color: #66686b;
 }
+
 .lineTopLeft {
     position: absolute;
     content: "";
@@ -90,5 +95,64 @@
     background-color: #66686b;
 }
 
+.buffSkillSectionName{
+    font: italic bold 2.2rem Teko;
+}
 
+.buffSkillSectionUpdate {
+    display: flex;
+    font: 1.6rem teko;
+    gap: 10px;
+}
 
+.buffSkillSectionDescription {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+}
+
+.buffSkillSectionProgress {
+    margin-top: 4rem;
+}
+
+.buffSkillProgress {
+    display: flex;
+    gap: 10px;
+    min-width: 100%;
+    margin-top: 10px;
+    align-items: baseline;
+}
+
+.buffSkillName {
+    font-size: 1.1rem;
+    min-width: 60px;
+}
+
+.buffSkillProgressBar{
+    width: 68%;
+}
+
+.buffSkillProgress progress {
+    background-color: #66686b;
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+}
+
+.buffSkillProgress p progress::-webkit-progress-value {
+    background-color: #006eff;
+    border-radius: 5px;
+}
+
+.buffSkillProgress progress::-webkit-progress-bar {
+    background-color: #66686b;
+    border-radius: 5px;
+}
+
+.buffSkillRating {
+    font-size: 1.1rem;
+}
+
+.buffSkillUpdate {
+    font-size: 1.1rem;
+    color: #006eff;
+}
