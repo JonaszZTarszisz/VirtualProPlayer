@@ -34,18 +34,18 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: 'Teko';
 }
+
 
 .buffSkillNamePart {
     justify-content: center;
 }
 
 .buffSkillName {
-    box-sizing: content-box;
     margin-bottom: 0;
-    height: 27px;
+    height: 26px;
 }
 
 .skillAreola {
@@ -122,13 +122,13 @@
     align-items: baseline;
 }
 
-.buffSkillName {
+.buffSkillAttribute {
     font-size: 1.1rem;
     min-width: 60px;
 }
 
 .buffSkillProgressBar{
-    width: 68%;
+    width: 66%;
 }
 
 .buffSkillProgress progress {
@@ -140,7 +140,8 @@
 
 .buffSkillProgress p progress::-webkit-progress-value {
     background-color: #006eff;
-    border-radius: 5px;
+    border-top-left-radius:  5px;
+    border-bottom-left-radius:  5px;
 }
 
 .buffSkillProgress progress::-webkit-progress-bar {
@@ -155,4 +156,32 @@
 .buffSkillUpdate {
     font-size: 1.1rem;
     color: #006eff;
+}
+
+.btnMyStyle {
+    border: 4px solid #66686b;
+    border-radius: 50%;
+    height: 85px;
+    width: 85px;
+    font-size: 1.4rem;
+    color: #66686b;
+    line-height: 110%;
+}
+
+.btn:hover {
+    border: 4px solid #006eff;
+    border-radius: 50%;
+    height: 85px;
+    width: 85px;
+    color: #006eff;
+}
+
+.btnClicked {
+    border: 4px solid #006eff;
+    border-radius: 50%;
+    height: 85px;
+    width: 85px;
+    font-size: 1.4rem;
+    color: #006eff;
+    line-height: 110%;
 }

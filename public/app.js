@@ -6,6 +6,8 @@ window.onload = function() {
     const attributes = document.querySelectorAll(".skillRating");
     const previousStep = document.querySelectorAll(".stepPrevious");
     const nextStep = document.querySelectorAll(".stepNext");
+    const buffSkill = document.querySelectorAll(".buffSkill");
+    const skillAreola = document.querySelectorAll(".skillAreola");
 
     const positions = ["GK", "CB", "LB", "LWB", "RB", "RWB", "CDM", "CAM",
                          "CM", "LM", "LW", "RM", "RW", "ST", "CF", "LF", "RF"];
@@ -28,24 +30,47 @@ window.onload = function() {
         let value = height.innerHTML;
         if(value <= 160) value = 201;
         height.innerHTML = value-1
-    })
+    });
 
     nextStep[1].addEventListener("click", () => {
         let value = height.innerHTML;
         if(value >= 200) value = 159;
         height.innerHTML = +value + 1;
-    })
+    });
 
     previousStep[2].addEventListener("click", () => {
         let value = weight.innerHTML;
         if(value <= 45) value = 116;
         weight.innerHTML = value-1
-    })
+    });
 
     nextStep[2].addEventListener("click", () => {
         let value = weight.innerHTML;
         if(value >= 115) value = 44;
         weight.innerHTML = +value + 1;
-    })
+    });
 
+    for( let i=0; i<buffSkill.length; i++) {
+        buffSkill[i].addEventListener("mousemove", () => {
+            buffSkill[i].style.color = "#006eff";
+            skillAreola[i].style.border = "4px solid #006eff";
+            const child = Array.from(buffSkill[i].children);
+            console.log(child);
+            const elementFound = child.find(e => e.classList.contains("lineTop"));
+            if(elementFound) elementFound.style.backgroundColor= "red";
+            
+        })
+        buffSkill[i].addEventListener("mouseout", () => {
+            buffSkill[i].style.color = "#66686b";
+            skillAreola[i].style.border = "4px solid #66686b";
+        })};
+        
+    mouseFocus = (btn2) => {
+        const elements = btn2.split(",");
+        elements.forEach(e => document.getElementById(e).classList.remove("btnMyStyle"))
+        elements.forEach(e => document.getElementById(e).classList.add("btnClicked"))
+        console.log(elements);
+
+    }
+    
 }
