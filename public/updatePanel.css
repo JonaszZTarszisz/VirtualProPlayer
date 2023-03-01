@@ -38,23 +38,64 @@
     font-family: 'Teko';
 }
 
-
-.buffSkillNamePart {
-    justify-content: center;
+input[type="checkbox"] {
+    display: none;
 }
 
-.buffSkillName {
-    margin-bottom: 0;
-    height: 26px;
-}
 
-.skillAreola {
-    border: 4px solid #66686b;
-    border-radius: 50%;
+
+.buttonForCheckbox {
+    cursor: pointer;
     width: 85px;
-    height: 85px; 
-    text-align: center;
-    position: absolute;
+    height: 85px;
+    border: 4px solid #66686b;
+    color: #66686b;
+    border-radius: 42.5px;
+    font-size: 1.5rem;
+    line-height: 27px;
+    margin: auto;
+}
+
+/*.buttonForCheckboxChecked {
+    cursor: pointer;
+    width: 85px;
+    height: 85px;
+    border: 4px solid #006eff;
+    color: #006eff;
+    border-radius: 42.5px;
+    font-size: 1.5rem;
+    line-height: 27px;
+    margin: auto;
+}*/
+
+.buttonForCheckbox > p {
+    width: 60px;
+    margin: auto;
+    margin-top: 11px;
+}
+
+/*.buttonForCheckboxChecked > P {
+    width: 60px;
+    margin: auto;
+    margin-top: 11px;
+}*/
+
+input[type="checkbox"]:checked ~ .buttonForCheckbox{
+    border: 4px solid #006eff;
+    color: #006eff;
+}
+
+input[type="checkbox"]:disabled ~ .buttonForCheckbox {
+    border: 4px solid #66686b;
+    color: #66686b;
+    cursor: default;
+}
+
+
+
+.buttonForCheckbox:hover {
+    border: 4px solid #909194;
+    color: #909194;
 }
 
 .lineDown {
@@ -70,9 +111,9 @@
     position: absolute;
     content: "";
     height: 4px;
-    width: 50%;
+    width: 100%;
     top: 0;
-    right: 0;
+    left: 50%;
     background-color: #66686b;
 }
 
@@ -80,9 +121,9 @@
     position: absolute;
     content: "";
     height: 4px;
-    width: 50%;
+    width: 100%;
     top: 0;
-    left: 0;
+    right: 50%;
     background-color: #66686b;
 }
 
@@ -158,30 +199,3 @@
     color: #006eff;
 }
 
-.btnMyStyle {
-    border: 4px solid #66686b;
-    border-radius: 50%;
-    height: 85px;
-    width: 85px;
-    font-size: 1.4rem;
-    color: #66686b;
-    line-height: 110%;
-}
-
-.btn:hover {
-    border: 4px solid #006eff;
-    border-radius: 50%;
-    height: 85px;
-    width: 85px;
-    color: #006eff;
-}
-
-.btnClicked {
-    border: 4px solid #006eff;
-    border-radius: 50%;
-    height: 85px;
-    width: 85px;
-    font-size: 1.4rem;
-    color: #006eff;
-    line-height: 110%;
-}

@@ -50,7 +50,7 @@ window.onload = function() {
         weight.innerHTML = +value + 1;
     });
 
-    for( let i=0; i<buffSkill.length; i++) {
+    /*for( let i=0; i<buffSkill.length; i++) {
         buffSkill[i].addEventListener("mousemove", () => {
             buffSkill[i].style.color = "#006eff";
             skillAreola[i].style.border = "4px solid #006eff";
@@ -64,13 +64,32 @@ window.onload = function() {
             buffSkill[i].style.color = "#66686b";
             skillAreola[i].style.border = "4px solid #66686b";
         })};
-        
-    mouseFocus = (btn2) => {
-        const elements = btn2.split(",");
-        elements.forEach(e => document.getElementById(e).classList.remove("btnMyStyle"))
-        elements.forEach(e => document.getElementById(e).classList.add("btnClicked"))
+    */    
+    /*mouseClick = (btn) => {
+        const elements = btn.split(",");
+        const conditions = elements.filter( e => e.includes("="));
+        if(conditions) {
+            let tabChoices = conditions.map( e => e.split("="));
+            console.log(tabChoices);
+            if(tabChoices.length>1){
+                tabChoices = tabChoices.shift();
+                
+            }
+        };
         console.log(elements);
-
-    }
+        console.log(conditions);
+    };*/
     
+    mouseClick = (btn) => {
+        const el = btn.split(",");
+        if(el.length>1) {
+            const targetString = el.pop();
+            var targetArray = targetString.split("/");
+        }
+        console.log(el);
+        console.log(targetArray);
+    }   
+        
+
+        
 }
