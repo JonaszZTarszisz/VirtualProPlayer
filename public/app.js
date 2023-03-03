@@ -81,14 +81,29 @@ window.onload = function() {
     };*/
     
     mouseClick = (btn) => {
-        const el = btn.split(",");
-        if(el.length>1) {
-            const targetString = el.pop();
-            var targetArray = targetString.split("/");
+        validateString(btn);
+        console.log(button.focusDiv, button.point, button.unblockDivs);
+        let checkboxEl = document.querySelector("#" + button.focusDiv + ">.checkbox");
+        if(checkboxEl.hasAttribute("disabled")) return;
+        if(!checkboxEl.checked) {
+            button.unblockDivs.forEach(e => document.querySelector("#" + e + ">.checkbox").removeAttribute('disabled'));
         }
-        console.log(el);
-        console.log(targetArray);
-    }   
+
+        else {
+            button.unblockDivs.forEach(e => document.querySelector("#" + e + ">.checkbox").addAttribute('disabled'));
+        }
+    }
+
+    validateString = (string) => {
+        let tab = string.split(",");
+        let unblockDivsString = tab.pop();
+        let unblockDivs = unblockDivsString.split("/");
+        let focusDivAndPointStr = tab.pop();
+        let focusDivAndPointTab = focusDivAndPointStr.split("-");
+        let point = focusDivAndPointTab.pop();
+        let focusDiv = focusDivAndPointTab.pop();
+        return button = {focusDiv, point, unblockDivs}
+    }
         
 
         
