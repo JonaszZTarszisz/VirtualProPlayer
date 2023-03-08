@@ -18,8 +18,13 @@
     color: #66686b;
 }
 
+.nav-active{
+    color: #006eff;
+}
+
 .buffPart {
     height: 70vh;
+    position: relative;
 }
 
 .storey {
@@ -196,6 +201,21 @@ input[type="checkbox"]:disabled ~ .buttonForCheckbox {
 
 .buffSkillUpdate {
     font-size: 1.1rem;
+    color: #006eff;
+}
+
+.backToMainPage {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #66686b;
+    right: 10px;
+    bottom: 10px;
+}
+
+.backToMainPage:hover {
+    font-size: 2.5rem;
+    font-weight: bold;
     color: #006eff;
 }
 
