@@ -16,9 +16,10 @@ class ControlPanel {
                          "CM", "LM", "LW", "RM", "RW", "ST", "CF", "LF", "RF"];
 
     this.frontPanel();
-    this.updatePanel();
+    this.goToupdatePanel();
     this.previousMenu();
     this.nextPanel();
+    this.readAttributes();
     }
 
     frontPanel() {
@@ -73,7 +74,7 @@ class ControlPanel {
         }))
     }*/
 
-    updatePanel() {
+    goToupdatePanel() {
         this.updatePanelPage = document.getElementById("updatePanel");
         this.mainPageAttributes.addEventListener('click', () => {
             this.mainPage.classList.add("d-none");
@@ -109,6 +110,17 @@ class ControlPanel {
             this.mainPage.classList.remove("d-none");
             this.updatePanelPage.classList.add("d-none");
         }))
+    }
+
+    readAttributes() {
+        fetch("attributes.json")
+        .then(result => result.json())
+        .then(data => this.sortAttributes(data))
+    }
+
+    sortAttributes(data) {
+        let position = data.GK.Defence;
+        console.log(position)
     }
 }
 
