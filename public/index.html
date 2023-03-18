@@ -71,7 +71,7 @@
                                     <p class="selectName">Play Style Name</p>
                                     <div class="selectValue">
                                         <p class="stepPrevious" role="button">&#60</p>
-                                        <p class="value" id="position">CB</p>
+                                        <p class="value" id="position">GK</p>
                                         <p class="stepNext" role="button">&#62</p>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                     <p class="selectName">Height</p>
                                     <div class="selectValue">
                                         <p class="stepPrevious" role="button">&#60</p>
-                                        <p class="value" id="height">162</p>
+                                        <p class="value" id="height">161</p>
                                         <p class="stepNext" role="button">&#62</p>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                                     <p class="selectName">Weight</p>
                                     <div class="selectValue">
                                         <p class="stepPrevious" role="button">&#60</p>
-                                        <p class="value" id="weight">75</p>
+                                        <p class="value" id="weight">46</p>
                                         <p class="stepNext" role="button">&#62</p>
                                     </div>
                                 </div>
@@ -238,31 +238,31 @@
                         </div>
                         <div class="buffSkillSectionDescription">Strenght will increase your chances of winning psysicial duels, both on and off the ball.</div>
                         <div class="buffSkillSectionProgress">
-                            <div class="buffSkillProgress justify-content-start">
+                            <div class="buffSkillProgress" id="jumping">
                                 <p class="buffSkillAttribute">Jumping</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
+                            <div class="buffSkillProgress"  id="stamina">
                                 <p class="buffSkillAttribute">Stamina</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
+                            <div class="buffSkillProgress" id="strenght">
                                 <p class="buffSkillAttribute">Strenght</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
+                            <div class="buffSkillProgress" id="reactions">
                                 <p class="buffSkillAttribute">Reactions</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
+                            <div class="buffSkillProgress" id="agression">
                                 <p class="buffSkillAttribute">Agression</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
@@ -393,38 +393,33 @@
                         </div>
                         <div class="buffSkillSectionDescription">Strenght will increase your chances of winning psysicial duels, both on and off the ball.</div>
                         <div class="buffSkillSectionProgress">
-                            <div class="buffSkillProgress justify-content-start">
-                                <p class="buffSkillAttribute">Jumping</p>
+                            <div class="buffSkillProgress" id="interceptions">
+                                <p class="buffSkillAttribute">Intercep.</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
-                                <p class="buffSkillAttribute">Stamina</p>
+                            <div class="buffSkillProgress" id="marking">
+                                <p class="buffSkillAttribute">Marking</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
-                                <p class="buffSkillAttribute">Strenght</p>
+                            <div class="buffSkillProgress" id="standingTackle">
+                                <p class="buffSkillAttribute">Stand. Tac.</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
-                                <p class="buffSkillAttribute">Reactions</p>
-                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
-                                <p class="buffSkillRating">80</p>
-                                <p class="buffSkillUpdate">+1</p>
-                            </div>
-                            <div class="buffSkillProgress">
-                                <p class="buffSkillAttribute">Agression</p>
+                            <div class="buffSkillProgress" id="slidingTackle">
+                                <p class="buffSkillAttribute">Slid. Tac.</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
                         </div>
                     </div>
+                    <button class="btn backToMainPage">Menu</button>
                 </div>   
             </div>
             <div class="row skillPanel d-none" id="dribblingPanel">
@@ -547,40 +542,655 @@
                         </div>
                         <div class="buffSkillSectionDescription">Strenght will increase your chances of winning psysicial duels, both on and off the ball.</div>
                         <div class="buffSkillSectionProgress">
-                            <div class="buffSkillProgress justify-content-start">
-                                <p class="buffSkillAttribute">Jumping</p>
+                            <div class="buffSkillProgress"  id="agility">
+                                <p class="buffSkillAttribute">Agility</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
-                                <p class="buffSkillAttribute">Stamina</p>
+                            <div class="buffSkillProgress"  id="balance">
+                                <p class="buffSkillAttribute">Balance</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
-                                <p class="buffSkillAttribute">Strenght</p>
+                            <div class="buffSkillProgress"  id="positioning">
+                                <p class="buffSkillAttribute">Positioning</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
-                                <p class="buffSkillAttribute">Reactions</p>
+                            <div class="buffSkillProgress"  id="ballControl">
+                                <p class="buffSkillAttribute">BallControl</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
-                            <div class="buffSkillProgress">
-                                <p class="buffSkillAttribute">Agression</p>
+                            <div class="buffSkillProgress"  id="dribbling">
+                                <p class="buffSkillAttribute">Dribbling</p>
                                 <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
                                 <p class="buffSkillRating">80</p>
                                 <p class="buffSkillUpdate">+1</p>
                             </div>
                         </div>
                     </div>
+                    <button class="btn backToMainPage">Menu</button>
                 </div>   
-            </div>       
+            </div>
+            <div class="row skillPanel d-none" id="passingPanel">
+                <div class="col-lg-4 buffPart">
+                    <div class="row storey justify-content-between">
+                        <div class="col-4 buffSkill" id="div1">
+                            <input type="checkbox" name="" class="checkbox" id="ck1">
+                            <label for="ck1" id="lb1" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div2">
+                            <input type="checkbox" name="" class="checkbox" id="ck2">
+                            <label for="ck2" id="lb2" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div3">
+                            <input type="checkbox" name="" class="checkbox" id="ck3">
+                            <label for="ck3" id="lb3" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopRight"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div4">
+                            <input type="checkbox" name="" class="checkbox" id="ck4">
+                            <label for="ck4" id="lb4" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div5">
+                            <input type="checkbox" name="" class="checkbox" id="ck5">
+                            <label for="ck5" id="lb5" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopLeft"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div6">
+                            <input type="checkbox" name="" class="checkbox" id="ck6">
+                            <label for="ck6" id="lb6" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div7">
+                            <input type="checkbox" name="" class="checkbox" id="ck7">
+                            <label for="ck7" id="lb7" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div8">
+                            <input type="checkbox" name="" class="checkbox" id="ck8">
+                            <label for="ck8" id="lb8" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div9">
+                            <input type="checkbox" name="" class="checkbox" id="ck9">
+                            <label for="ck9" id="lb9" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopRight"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div10">
+                            <input type="checkbox" name="" class="checkbox" id="ck10">
+                            <label for="ck10" id="lb10" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div11">
+                            <input type="checkbox" name="" class="checkbox" id="ck11">
+                            <label for="ck11" id="lb11" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopLeft"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div12">
+                            <input type="checkbox" name="" class="checkbox" id="ck12">
+                            <label for="ck12" id="lb2" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-lg-4 buffPart">
+                    empty
+                </div>  
+                <div class="col-lg-4 buffPart">
+                    <div class="storey">
+                        <div class="buffSkillSectionName">Strenght</div>
+                        <div class="buffSkillSectionUpdate">
+                            <div class="buffSkillSectionCost">Cost:</div>
+                            <div class="buffSkillSectionValue">2</div>
+                        </div>
+                        <div class="buffSkillSectionDescription">Strenght will increase your chances of winning psysicial duels, both on and off the ball.</div>
+                        <div class="buffSkillSectionProgress">
+                            <div class="buffSkillProgress"  id="vision">
+                                <p class="buffSkillAttribute">Vision</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="crossing">
+                                <p class="buffSkillAttribute">Crossing</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="longPassing">
+                                <p class="buffSkillAttribute">Long. Pass.</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="shortPassing">
+                                <p class="buffSkillAttribute">Shor. Pass.</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="curve">
+                                <p class="buffSkillAttribute">Curve</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn backToMainPage">Menu</button>
+                </div>   
+            </div>
+            <div class="row skillPanel d-none" id="shottingPanel">
+                <div class="col-lg-4 buffPart">
+                    <div class="row storey justify-content-between">
+                        <div class="col-4 buffSkill" id="div1">
+                            <input type="checkbox" name="" class="checkbox" id="ck1">
+                            <label for="ck1" id="lb1" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div2">
+                            <input type="checkbox" name="" class="checkbox" id="ck2">
+                            <label for="ck2" id="lb2" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div3">
+                            <input type="checkbox" name="" class="checkbox" id="ck3">
+                            <label for="ck3" id="lb3" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopRight"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div4">
+                            <input type="checkbox" name="" class="checkbox" id="ck4">
+                            <label for="ck4" id="lb4" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div5">
+                            <input type="checkbox" name="" class="checkbox" id="ck5">
+                            <label for="ck5" id="lb5" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopLeft"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div6">
+                            <input type="checkbox" name="" class="checkbox" id="ck6">
+                            <label for="ck6" id="lb6" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div7">
+                            <input type="checkbox" name="" class="checkbox" id="ck7">
+                            <label for="ck7" id="lb7" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div8">
+                            <input type="checkbox" name="" class="checkbox" id="ck8">
+                            <label for="ck8" id="lb8" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div9">
+                            <input type="checkbox" name="" class="checkbox" id="ck9">
+                            <label for="ck9" id="lb9" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopRight"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div10">
+                            <input type="checkbox" name="" class="checkbox" id="ck10">
+                            <label for="ck10" id="lb10" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div11">
+                            <input type="checkbox" name="" class="checkbox" id="ck11">
+                            <label for="ck11" id="lb11" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopLeft"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div12">
+                            <input type="checkbox" name="" class="checkbox" id="ck12">
+                            <label for="ck12" id="lb2" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-lg-4 buffPart">
+                    empty
+                </div>  
+                <div class="col-lg-4 buffPart">
+                    <div class="storey">
+                        <div class="buffSkillSectionName">Strenght</div>
+                        <div class="buffSkillSectionUpdate">
+                            <div class="buffSkillSectionCost">Cost:</div>
+                            <div class="buffSkillSectionValue">2</div>
+                        </div>
+                        <div class="buffSkillSectionDescription">Strenght will increase your chances of winning psysicial duels, both on and off the ball.</div>
+                        <div class="buffSkillSectionProgress">
+                            <div class="buffSkillProgress"  id="finishing">
+                                <p class="buffSkillAttribute">Finishing</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="fkaccuracy">
+                                <p class="buffSkillAttribute">FK. Acc.</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="heading">
+                                <p class="buffSkillAttribute">Heading</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="shotPower">
+                                <p class="buffSkillAttribute">Shot Power</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="longShots">
+                                <p class="buffSkillAttribute">Long Shots</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="volleys">
+                                <p class="buffSkillAttribute">Volleys</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="penalties">
+                                <p class="buffSkillAttribute">Penalties</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn backToMainPage">Menu</button>
+                </div>   
+            </div>
+            <div class="row skillPanel d-none" id="pacePanel">
+                <div class="col-lg-4 buffPart">
+                    <div class="row storey justify-content-between">
+                        <div class="col-4 buffSkill" id="div1">
+                            <input type="checkbox" name="" class="checkbox" id="ck1">
+                            <label for="ck1" id="lb1" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div2">
+                            <input type="checkbox" name="" class="checkbox" id="ck2">
+                            <label for="ck2" id="lb2" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div3">
+                            <input type="checkbox" name="" class="checkbox" id="ck3">
+                            <label for="ck3" id="lb3" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopRight"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div4">
+                            <input type="checkbox" name="" class="checkbox" id="ck4">
+                            <label for="ck4" id="lb4" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div5">
+                            <input type="checkbox" name="" class="checkbox" id="ck5">
+                            <label for="ck5" id="lb5" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopLeft"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div6">
+                            <input type="checkbox" name="" class="checkbox" id="ck6">
+                            <label for="ck6" id="lb6" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div7">
+                            <input type="checkbox" name="" class="checkbox" id="ck7">
+                            <label for="ck7" id="lb7" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div8">
+                            <input type="checkbox" name="" class="checkbox" id="ck8">
+                            <label for="ck8" id="lb8" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div9">
+                            <input type="checkbox" name="" class="checkbox" id="ck9">
+                            <label for="ck9" id="lb9" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopRight"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div10">
+                            <input type="checkbox" name="" class="checkbox" id="ck10">
+                            <label for="ck10" id="lb10" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div11">
+                            <input type="checkbox" name="" class="checkbox" id="ck11">
+                            <label for="ck11" id="lb11" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopLeft"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div12">
+                            <input type="checkbox" name="" class="checkbox" id="ck12">
+                            <label for="ck12" id="lb2" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-lg-4 buffPart">
+                    empty
+                </div>  
+                <div class="col-lg-4 buffPart">
+                    <div class="storey">
+                        <div class="buffSkillSectionName">Strenght</div>
+                        <div class="buffSkillSectionUpdate">
+                            <div class="buffSkillSectionCost">Cost:</div>
+                            <div class="buffSkillSectionValue">2</div>
+                        </div>
+                        <div class="buffSkillSectionDescription">Strenght will increase your chances of winning psysicial duels, both on and off the ball.</div>
+                        <div class="buffSkillSectionProgress">
+                            <div class="buffSkillProgress"  id="acceleration">
+                                <p class="buffSkillAttribute">Accelerat.</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="sprintSpeed">
+                                <p class="buffSkillAttribute">Sprint</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn backToMainPage">Menu</button>
+                </div>   
+            </div>
+            <div class="row skillPanel d-none" id="shottingPanel">
+                <div class="col-lg-4 buffPart">
+                    <div class="row storey justify-content-between">
+                        <div class="col-4 buffSkill" id="div1">
+                            <input type="checkbox" name="" class="checkbox" id="ck1">
+                            <label for="ck1" id="lb1" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div2">
+                            <input type="checkbox" name="" class="checkbox" id="ck2">
+                            <label for="ck2" id="lb2" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div3">
+                            <input type="checkbox" name="" class="checkbox" id="ck3">
+                            <label for="ck3" id="lb3" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopRight"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div4">
+                            <input type="checkbox" name="" class="checkbox" id="ck4">
+                            <label for="ck4" id="lb4" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div5">
+                            <input type="checkbox" name="" class="checkbox" id="ck5">
+                            <label for="ck5" id="lb5" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopLeft"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div6">
+                            <input type="checkbox" name="" class="checkbox" id="ck6">
+                            <label for="ck6" id="lb6" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div7">
+                            <input type="checkbox" name="" class="checkbox" id="ck7">
+                            <label for="ck7" id="lb7" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div8">
+                            <input type="checkbox" name="" class="checkbox" id="ck8">
+                            <label for="ck8" id="lb8" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div9">
+                            <input type="checkbox" name="" class="checkbox" id="ck9">
+                            <label for="ck9" id="lb9" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopRight"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div10">
+                            <input type="checkbox" name="" class="checkbox" id="ck10">
+                            <label for="ck10" id="lb10" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineDown"></div>
+                        </div>
+                        <div class="col-4 buffSkill" id="div11">
+                            <input type="checkbox" name="" class="checkbox" id="ck11">
+                            <label for="ck11" id="lb11" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                            <div class="lineTopLeft"></div>
+                        </div>
+                    </div>
+                    <div class="row storey justify-content-center">
+                        <div class="col-4 buffSkill" id="div12">
+                            <input type="checkbox" name="" class="checkbox" id="ck12">
+                            <label for="ck12" id="lb2" class="buttonForCheckbox">
+                                <p>+1 Jum +1 Sta</p>
+                            </label>
+                            <div class="lineTop"></div>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-lg-4 buffPart">
+                    empty
+                </div>  
+                <div class="col-lg-4 buffPart">
+                    <div class="storey">
+                        <div class="buffSkillSectionName">Strenght</div>
+                        <div class="buffSkillSectionUpdate">
+                            <div class="buffSkillSectionCost">Cost:</div>
+                            <div class="buffSkillSectionValue">2</div>
+                        </div>
+                        <div class="buffSkillSectionDescription">Strenght will increase your chances of winning psysicial duels, both on and off the ball.</div>
+                        <div class="buffSkillSectionProgress">
+                            <div class="buffSkillProgress"  id="diving">
+                                <p class="buffSkillAttribute">Diving</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="handling">
+                                <p class="buffSkillAttribute">Handling</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="kicking">
+                                <p class="buffSkillAttribute">Kicking</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="reflexes">
+                                <p class="buffSkillAttribute">Reflexes</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                            <div class="buffSkillProgress"  id="keeperPositioning">
+                                <p class="buffSkillAttribute">Positioning</p>
+                                <p class="buffSkillProgressBar"><progress value="80" min="0" max="100"></progress></p>
+                                <p class="buffSkillRating">80</p>
+                                <p class="buffSkillUpdate">+1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn backToMainPage">Menu</button>
+                </div>   
+            </div> 
         </div>
     </div>
 
