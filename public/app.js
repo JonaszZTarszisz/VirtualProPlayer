@@ -12,7 +12,10 @@ class ControlPanel {
     this.mainPageAttributes = document.getElementById("attributes")
     this.mainPage = document.getElementById("mainPage");
     this.attributes = null;
-    
+    this.attributesHeightChanges = null;
+    this.attributesWeightChanges = null;
+    this.heightLimit = 0;
+    this.weightLimit = 0;
     this.positions = ["GK", "CB", "LB", "LWB", "RB", "RWB", "CDM", "CAM",
                          "CM", "LM", "LW", "RM", "RW", "ST", "CF", "LF", "RF"];
 
@@ -21,6 +24,8 @@ class ControlPanel {
     this.previousMenu();
     this.nextPanel();
     this.readAttributes();
+    this.readHeightJSON();
+
     }
 
     frontPanel() {
@@ -29,7 +34,7 @@ class ControlPanel {
             let index = this.positions.indexOf(value);
             if(index <= 0) index = this.positions.length;
             this.position.innerHTML = this.positions[index-1];
-            this.setPosition(this.position.innerHTML, this.attributes);
+            this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
         this.nextStep[0].addEventListener("click", () => {
@@ -37,45 +42,37 @@ class ControlPanel {
             let index = this.positions.indexOf(value);
             if(index >= this.positions.length - 1) index = -1;
             this.position.innerHTML = this.positions[index+1];
-            this.setPosition(this.position.innerHTML, this.attributes);
+            this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
         this.previousStep[1].addEventListener("click", () => {
-            let value = height.innerHTML;
-            if(value <= 160) value = 201;
-            height.innerHTML = value-1
+            let value = this.height.innerHTML;
+            if(value <= 160) value = 161;
+            this.height.innerHTML = value - 1;
+            this.setHeightLimit(this.height.innerHTML);
+            console.log(this.heightLimit);
         });
 
         this.nextStep[1].addEventListener("click", () => {
-            let value = height.innerHTML;
-            if(value >= 200) value = 159;
-            height.innerHTML = +value + 1;
+            let value = this.height.innerHTML;
+            if(value >= 200) value = 199;
+            this.height.innerHTML = +value + 1;
+            this.setHeightLimit(this.height.innerHTML);
+            console.log(this.heightLimit);
         });
 
         this.previousStep[2].addEventListener("click", () => {
-            let value = weight.innerHTML;
-            if(value <= 45) value = 116;
-            weight.innerHTML = value-1
+            let value = this.weight.innerHTML;
+            if(value <= 45) value = 46;
+            this.weight.innerHTML = value-1
         });
 
         this.nextStep[2].addEventListener("click", () => {
-            let value = weight.innerHTML;
-            if(value >= 115) value = 44;
-            weight.innerHTML = +value + 1;
+            let value = this.weight.innerHTML;
+            if(value >= 115) value = 114;
+            this.weight.innerHTML = +value + 1;
         });
     }
-
-    /*updatePanel() {
-        const physcialID = "#" + this.physcialPanel.getAttributeNode("id").value;
-        let checkboxes = Array.from(document.querySelectorAll(physcialID+ "> .buffPart > .storey > .buffSkill > .checkbox"));
-        console.log(checkboxes);
-        checkboxes.forEach(e => e.addEventListener("click", () => {
-            if(e.checked) {
-                let label = document.querySelector("#" + e.id + "~ label p");
-                console.log(label, e)
-            }
-        }))
-    }*/
 
     goToupdatePanel() {
         this.updatePanelPage = document.getElementById("updatePanel");
@@ -109,7 +106,7 @@ class ControlPanel {
     previousMenu () {
         this.backToMainPage = document.querySelectorAll(".backToMainPage");
         this.backToMainPage.forEach( e => e.addEventListener("click", () => {
-            console.log("witaj")
+            //console.log("witaj")
             this.mainPage.classList.remove("d-none");
             this.updatePanelPage.classList.add("d-none");
         }))
@@ -118,19 +115,52 @@ class ControlPanel {
     readAttributes() {
         fetch("attributes.json")
         .then(result => result.json())
-        .then(data => this.setAttributes(data))
+        .then(data => this.basicAttributes(data))
     }
 
-    setAttributes(attributesFromJson) {
+    basicAttributes(attributesFromJson) {
         this.attributes = attributesFromJson;
-        let position = this.position.innerHTML;
-        const attibutesKeys = Object.keys(this.attributes);
-        let findPosition = attibutesKeys.find(e => e == position);
-        this.setPosition(findPosition, this.attributes);
+        this.setAttributes(this.position.innerHTML, this.attributes)
     }
 
-    setPosition(findPosition, attributes) {
-        console.log(attributes[findPosition]);
+    readHeightJSON() {
+        fetch("heightChanges.json")
+        .then(result => result.json())
+        .then(data => this.saveAttributesHeightChanges(data))
+    }
+
+    saveAttributesHeightChanges(data){
+        this.attributesHeightChanges = data;
+        console.log(this.attributesHeightChanges);
+    }
+
+    readweightJSON() {
+        fetch("weightChanges.json")
+        .then(result => result.json())
+        .then(data => this.saveAttributesWeightChanges(data))
+    }
+
+    saveAttributesWeightChanges(data){
+        this.attributesWeightChanges = data;
+        console.log(this.attributesWeightChanges);
+    }
+
+    setHeightLimit(height) {
+        switch(true) {
+            case(height >= 160 && height <=162): this.heightLimit = 0; break;
+            case(height >= 163 && height <=167): this.heightLimit = 1; break;
+            case(height >= 168 && height <=172): this.heightLimit = 2; break;
+            case(height >= 173 && height <=177): this.heightLimit = 3; break;
+            case(height >= 178 && height <=182): this.heightLimit = 4; break;
+            case(height >= 183 && height <=187): this.heightLimit = 5; break;
+            case(height >= 188 && height <=192): this.heightLimit = 6; break;
+            case(height >= 193 && height <=197): this.heightLimit = 7; break;
+            case(height >= 198 && height <=200): this.heightLimit = 8; break;
+        }
+    }
+
+    setAttributes(findPosition, attributes, heightChange, weightChange, heightLimit, weightLimit) {
+        //console.log(attributes[findPosition]);
         document.querySelector("#jumping .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Jumping;
         document.querySelector("#stamina .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Stamina;
         document.querySelector("#strenght .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Strenght;
@@ -165,6 +195,23 @@ class ControlPanel {
         document.querySelector("#reflexes .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Reflexes;
         document.querySelector("#keeperPositioning .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Positioning;
 
+    }
+
+    addHeight(position, heightSkills, height) {
+        switch(height) {
+            case 163: this.addHeightAttributesToDefault(position, heightSkills, 1); break;
+            case 168: console.log(); break;
+            case 173: console.log(); break;
+            case 178: console.log(); break;
+            case 183: console.log(); break;
+            case 188: console.log(); break;
+            case 193: console.log(); break;
+            case 198: console.log(); break;
+        }
+    }
+
+    addHeightAttributesToDefault(position, heightSkills, limit) {
+        document.querySelector("#jumping .buffSkillRating").innerHTML = +document.querySelector("#jumping .buffSkillRating").innerHTML + heightSkills[position].Physicality.Jumping[limit];
     }
     
 }
