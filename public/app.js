@@ -25,15 +25,25 @@ class ControlPanel {
     this.nextPanel();
     this.readAttributes();
     this.readHeightJSON();
+    this.readWeightJSON();
 
     }
 
+
     frontPanel() {
+        
         this.previousStep[0].addEventListener("click", () => {
             const value = this.position.innerHTML;
             let index = this.positions.indexOf(value);
             if(index <= 0) index = this.positions.length;
             this.position.innerHTML = this.positions[index-1];
+            if(this.position.innerHTML === "GK") {
+                document.getElementById("shottingButton").classList.add("d-none");
+                document.getElementById("goalkeeperButton").classList.remove("d-none");
+            } else {
+                document.getElementById("goalkeeperButton").classList.add("d-none");
+                document.getElementById("shottingButton").classList.remove("d-none");
+            }
             this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
@@ -42,37 +52,49 @@ class ControlPanel {
             let index = this.positions.indexOf(value);
             if(index >= this.positions.length - 1) index = -1;
             this.position.innerHTML = this.positions[index+1];
+            if(this.position.innerHTML === "GK") {
+                document.getElementById("shottingButton").classList.add("d-none");
+                document.getElementById("goalkeeperButton").classList.remove("d-none");
+            } else {
+                document.getElementById("goalkeeperButton").classList.add("d-none");
+                document.getElementById("shottingButton").classList.remove("d-none");
+            }
             this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
         this.previousStep[1].addEventListener("click", () => {
             let value = this.height.innerHTML;
-            if(value <= 160) value = 161;
+            if(value <= 160) value = 201;
             this.height.innerHTML = value - 1;
             this.setHeightLimit(this.height.innerHTML);
-            console.log(this.heightLimit);
+            this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
         this.nextStep[1].addEventListener("click", () => {
             let value = this.height.innerHTML;
-            if(value >= 200) value = 199;
+            if(value >= 200) value = 159;
             this.height.innerHTML = +value + 1;
             this.setHeightLimit(this.height.innerHTML);
-            console.log(this.heightLimit);
+            this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
         this.previousStep[2].addEventListener("click", () => {
             let value = this.weight.innerHTML;
-            if(value <= 45) value = 46;
-            this.weight.innerHTML = value-1
+            if(value <= 45) value = 116;
+            this.weight.innerHTML = value-1;
+            this.setWeightLimit(this.weight.innerHTML);
+            this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
         this.nextStep[2].addEventListener("click", () => {
             let value = this.weight.innerHTML;
-            if(value >= 115) value = 114;
+            if(value >= 115) value = 44;
             this.weight.innerHTML = +value + 1;
+            this.setWeightLimit(this.weight.innerHTML);
+            this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
     }
+
 
     goToupdatePanel() {
         this.updatePanelPage = document.getElementById("updatePanel");
@@ -82,17 +104,21 @@ class ControlPanel {
         })
     }
 
+
     nextPanel() {
         let navUpdatePanel = document.querySelectorAll("#navbarUpdatePanel > .nav-item > .nav-link");
         let skillPanels = Array.from(document.querySelectorAll(".skillPanel"));
         navUpdatePanel.forEach(e => e.addEventListener("click", () => {
             //console.log(skillPanels);
+            let activeLink = document.querySelector(".nav-active");
             let activePanel = document.querySelector(".active-panel");
             let namePanel = e.innerHTML.toLowerCase();
             let focusPanel = skillPanels.filter( e => {
                 let idOfFocusOfPanel = e.getAttributeNode("id").value;
                 return idOfFocusOfPanel.slice(0, namePanel.length) == namePanel;
             })
+        activeLink.classList.remove("nav-active");
+        e.classList.add("nav-active");
         activePanel.classList.remove("active-panel");
         activePanel.classList.add("d-none");
         focusPanel[0].classList.remove("d-none");
@@ -103,6 +129,7 @@ class ControlPanel {
 
     }
 
+
     previousMenu () {
         this.backToMainPage = document.querySelectorAll(".backToMainPage");
         this.backToMainPage.forEach( e => e.addEventListener("click", () => {
@@ -112,6 +139,7 @@ class ControlPanel {
         }))
     }
 
+
     readAttributes() {
         fetch("attributes.json")
         .then(result => result.json())
@@ -120,8 +148,8 @@ class ControlPanel {
 
     basicAttributes(attributesFromJson) {
         this.attributes = attributesFromJson;
-        this.setAttributes(this.position.innerHTML, this.attributes)
     }
+
 
     readHeightJSON() {
         fetch("heightChanges.json")
@@ -131,10 +159,10 @@ class ControlPanel {
 
     saveAttributesHeightChanges(data){
         this.attributesHeightChanges = data;
-        console.log(this.attributesHeightChanges);
     }
 
-    readweightJSON() {
+
+    readWeightJSON() {
         fetch("weightChanges.json")
         .then(result => result.json())
         .then(data => this.saveAttributesWeightChanges(data))
@@ -142,8 +170,9 @@ class ControlPanel {
 
     saveAttributesWeightChanges(data){
         this.attributesWeightChanges = data;
-        console.log(this.attributesWeightChanges);
+        this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit)
     }
+
 
     setHeightLimit(height) {
         switch(true) {
@@ -159,59 +188,54 @@ class ControlPanel {
         }
     }
 
-    setAttributes(findPosition, attributes, heightChange, weightChange, heightLimit, weightLimit) {
-        //console.log(attributes[findPosition]);
-        document.querySelector("#jumping .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Jumping;
-        document.querySelector("#stamina .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Stamina;
-        document.querySelector("#strenght .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Strenght;
-        document.querySelector("#reactions .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Reactions;
-        document.querySelector("#agression .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Agression;
-        document.querySelector("#interceptions .buffSkillRating").innerHTML = attributes[findPosition].Defence.Interceptions;
-        document.querySelector("#marking .buffSkillRating").innerHTML = attributes[findPosition].Defence.Marking;
-        document.querySelector("#standingTackle .buffSkillRating").innerHTML = attributes[findPosition].Defence.StandingTackle;
-        document.querySelector("#slidingTackle .buffSkillRating").innerHTML = attributes[findPosition].Defence.SlidingTackle;
-        document.querySelector("#agility .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.Agility;
-        document.querySelector("#balance .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.Balance;
-        document.querySelector("#positioning .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.Positioning;
-        document.querySelector("#ballControl .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.BallControl;
-        document.querySelector("#dribbling .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.Dribbling;
-        document.querySelector("#vision .buffSkillRating").innerHTML = attributes[findPosition].Passing.Vision;
-        document.querySelector("#crossing .buffSkillRating").innerHTML = attributes[findPosition].Passing.Crossing;
-        document.querySelector("#longPassing .buffSkillRating").innerHTML = attributes[findPosition].Passing.LongPassing;
-        document.querySelector("#shortPassing .buffSkillRating").innerHTML = attributes[findPosition].Passing.ShortPassing;
-        document.querySelector("#curve .buffSkillRating").innerHTML = attributes[findPosition].Passing.Curve;
-        document.querySelector("#finishing .buffSkillRating").innerHTML = attributes[findPosition].Shotting.Finishing;
-        document.querySelector("#fkaccuracy .buffSkillRating").innerHTML = attributes[findPosition].Shotting.FKAccuracy;
-        document.querySelector("#heading .buffSkillRating").innerHTML = attributes[findPosition].Shotting.Heading;
-        document.querySelector("#shotPower .buffSkillRating").innerHTML = attributes[findPosition].Shotting.ShotPower;
-        document.querySelector("#longShots .buffSkillRating").innerHTML = attributes[findPosition].Shotting.LongShots;
-        document.querySelector("#volleys .buffSkillRating").innerHTML = attributes[findPosition].Shotting.Volleys;
-        document.querySelector("#penalties .buffSkillRating").innerHTML = attributes[findPosition].Shotting.Penalties;
-        document.querySelector("#acceleration .buffSkillRating").innerHTML = attributes[findPosition].Pace.Acceleration;
-        document.querySelector("#sprintSpeed .buffSkillRating").innerHTML = attributes[findPosition].Pace.SprintSpeed;
-        document.querySelector("#diving .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Diving;
-        document.querySelector("#handling .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Handling;
-        document.querySelector("#kicking .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Kicking;
-        document.querySelector("#reflexes .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Reflexes;
-        document.querySelector("#keeperPositioning .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Positioning;
-
-    }
-
-    addHeight(position, heightSkills, height) {
-        switch(height) {
-            case 163: this.addHeightAttributesToDefault(position, heightSkills, 1); break;
-            case 168: console.log(); break;
-            case 173: console.log(); break;
-            case 178: console.log(); break;
-            case 183: console.log(); break;
-            case 188: console.log(); break;
-            case 193: console.log(); break;
-            case 198: console.log(); break;
+    setWeightLimit(weight) {
+        switch(true) {
+            case(weight >= 45 && weight <=54): this.weightLimit = 0; break;
+            case(weight >= 55 && weight <=68): this.weightLimit = 1; break;
+            case(weight >= 69 && weight <=79): this.weightLimit = 2; break;
+            case(weight >= 80 && weight <=90): this.weightLimit = 3; break;
+            case(weight >= 91 && weight <=102): this.weightLimit = 4; break;
+            case(weight >= 103 && weight <=115): this.weightLimit = 5; break;
         }
     }
 
-    addHeightAttributesToDefault(position, heightSkills, limit) {
-        document.querySelector("#jumping .buffSkillRating").innerHTML = +document.querySelector("#jumping .buffSkillRating").innerHTML + heightSkills[position].Physicality.Jumping[limit];
+
+    setAttributes(findPosition, attributes, heightChange, weightChange, heightLimit, weightLimit) {
+        //console.log(heightChange[findPosition].Physicality.Jumping[heightLimit]);
+        document.querySelector("#jumping .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Jumping + heightChange[findPosition].Physicality.Jumping[heightLimit] + weightChange[findPosition].Physicality.Jumping[weightLimit];
+        document.querySelector("#stamina .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Stamina + heightChange[findPosition].Physicality.Stamina[heightLimit] + weightChange[findPosition].Physicality.Stamina[weightLimit];
+        document.querySelector("#strenght .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Strenght + heightChange[findPosition].Physicality.Strenght[heightLimit] + weightChange[findPosition].Physicality.Strenght[weightLimit];
+        document.querySelector("#reactions .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Reactions + heightChange[findPosition].Physicality.Reactions[heightLimit] + weightChange[findPosition].Physicality.Reactions[weightLimit];
+        document.querySelector("#agression .buffSkillRating").innerHTML = attributes[findPosition].Physicality.Agression + heightChange[findPosition].Physicality.Agression[heightLimit] + weightChange[findPosition].Physicality.Agression[weightLimit];
+        document.querySelector("#interceptions .buffSkillRating").innerHTML = attributes[findPosition].Defence.Interceptions + heightChange[findPosition].Defence.Interceptions[heightLimit] + weightChange[findPosition].Defence.Interceptions[weightLimit];
+        document.querySelector("#marking .buffSkillRating").innerHTML = attributes[findPosition].Defence.Marking + heightChange[findPosition].Defence.Marking[heightLimit] + weightChange[findPosition].Defence.Marking[weightLimit];
+        document.querySelector("#standingTackle .buffSkillRating").innerHTML = attributes[findPosition].Defence.StandingTackle + heightChange[findPosition].Defence.StandingTackle[heightLimit] + weightChange[findPosition].Defence.StandingTackle[weightLimit];
+        document.querySelector("#slidingTackle .buffSkillRating").innerHTML = attributes[findPosition].Defence.SlidingTackle + heightChange[findPosition].Defence.SlidingTackle[heightLimit] + weightChange[findPosition].Defence.SlidingTackle[weightLimit];
+        document.querySelector("#agility .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.Agility + heightChange[findPosition].Dribbling.Agility[heightLimit] + weightChange[findPosition].Dribbling.Agility[weightLimit];
+        document.querySelector("#balance .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.Balance + heightChange[findPosition].Dribbling.Balance[heightLimit] + weightChange[findPosition].Dribbling.Balance[weightLimit];
+        document.querySelector("#positioning .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.Positioning + heightChange[findPosition].Dribbling.Positioning[heightLimit] + weightChange[findPosition].Dribbling.Positioning[weightLimit];
+        document.querySelector("#ballControl .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.BallControl + heightChange[findPosition].Dribbling.BallControl[heightLimit] + weightChange[findPosition].Dribbling.BallControl[weightLimit];
+        document.querySelector("#dribbling .buffSkillRating").innerHTML = attributes[findPosition].Dribbling.Dribbling + heightChange[findPosition].Dribbling.Dribbling[heightLimit] + weightChange[findPosition].Dribbling.Dribbling[weightLimit];
+        document.querySelector("#vision .buffSkillRating").innerHTML = attributes[findPosition].Passing.Vision + heightChange[findPosition].Passing.Vision[heightLimit] + weightChange[findPosition].Passing.Vision[weightLimit];
+        document.querySelector("#crossing .buffSkillRating").innerHTML = attributes[findPosition].Passing.Crossing + heightChange[findPosition].Passing.Crossing[heightLimit] + weightChange[findPosition].Passing.Crossing[weightLimit];
+        document.querySelector("#longPassing .buffSkillRating").innerHTML = attributes[findPosition].Passing.LongPassing + heightChange[findPosition].Passing.LongPassing[heightLimit] + weightChange[findPosition].Passing.LongPassing[weightLimit];
+        document.querySelector("#shortPassing .buffSkillRating").innerHTML = attributes[findPosition].Passing.ShortPassing + heightChange[findPosition].Passing.ShortPassing[heightLimit] + weightChange[findPosition].Passing.ShortPassing[weightLimit];
+        document.querySelector("#curve .buffSkillRating").innerHTML = attributes[findPosition].Passing.Curve + heightChange[findPosition].Passing.Curve[heightLimit] + weightChange[findPosition].Passing.Curve[weightLimit];
+        document.querySelector("#finishing .buffSkillRating").innerHTML = attributes[findPosition].Shotting.Finishing + heightChange[findPosition].Shotting.Finishing[heightLimit] + weightChange[findPosition].Shotting.Finishing[weightLimit];
+        document.querySelector("#fkaccuracy .buffSkillRating").innerHTML = attributes[findPosition].Shotting.FKAccuracy + heightChange[findPosition].Shotting.FKAccuracy[heightLimit] + weightChange[findPosition].Shotting.FKAccuracy[weightLimit];
+        document.querySelector("#heading .buffSkillRating").innerHTML = attributes[findPosition].Shotting.Heading + heightChange[findPosition].Shotting.Heading[heightLimit] + weightChange[findPosition].Shotting.Heading[weightLimit];
+        document.querySelector("#shotPower .buffSkillRating").innerHTML = attributes[findPosition].Shotting.ShotPower + heightChange[findPosition].Shotting.ShotPower[heightLimit] + weightChange[findPosition].Shotting.ShotPower[weightLimit];
+        document.querySelector("#longShots .buffSkillRating").innerHTML = attributes[findPosition].Shotting.LongShots + heightChange[findPosition].Shotting.LongShots[heightLimit] + weightChange[findPosition].Shotting.LongShots[weightLimit];
+        document.querySelector("#volleys .buffSkillRating").innerHTML = attributes[findPosition].Shotting.Volleys + heightChange[findPosition].Shotting.Volleys[heightLimit] + weightChange[findPosition].Shotting.Volleys[weightLimit];
+        document.querySelector("#penalties .buffSkillRating").innerHTML = attributes[findPosition].Shotting.Penalties + heightChange[findPosition].Shotting.Penalties[heightLimit] + weightChange[findPosition].Shotting.Penalties[weightLimit];
+        document.querySelector("#acceleration .buffSkillRating").innerHTML = attributes[findPosition].Pace.Acceleration + heightChange[findPosition].Pace.Acceleration[heightLimit] + weightChange[findPosition].Pace.Acceleration[weightLimit];
+        document.querySelector("#sprintSpeed .buffSkillRating").innerHTML = attributes[findPosition].Pace.SprintSpeed + heightChange[findPosition].Pace.SprintSpeed[heightLimit] + weightChange[findPosition].Pace.SprintSpeed[weightLimit];
+        document.querySelector("#diving .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Diving + heightChange[findPosition].Goalkeeper.Diving[heightLimit] + weightChange[findPosition].Goalkeeper.Diving[weightLimit];
+        document.querySelector("#handling .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Handling + heightChange[findPosition].Goalkeeper.Handling[heightLimit] + weightChange[findPosition].Goalkeeper.Handling[weightLimit];
+        document.querySelector("#kicking .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Kicking + heightChange[findPosition].Goalkeeper.Kicking[heightLimit] + weightChange[findPosition].Goalkeeper.Kicking[weightLimit];
+        document.querySelector("#reflexes .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Reflexes + heightChange[findPosition].Goalkeeper.Reflexes[heightLimit] + weightChange[findPosition].Goalkeeper.Reflexes[weightLimit];
+        document.querySelector("#keeperPositioning .buffSkillRating").innerHTML = attributes[findPosition].Goalkeeper.Positioning + heightChange[findPosition].Goalkeeper.Positioning[heightLimit] + weightChange[findPosition].Goalkeeper.Positioning[weightLimit];
+
     }
     
 }

@@ -165,5 +165,61 @@
             "Reflexes": 10,
             "Positioning": 10
         }
+    },
+
+    "LWB": {
+        "Physicality": {
+            "Jumping": 71,
+            "Stamina": 83,
+            "Strenght": 62,
+            "Reactions": 85,
+            "Agression": 71
+        },
+
+        "Defence": {
+            "Interceptions": 80,
+            "Marking": 79,
+            "StandingTackle": 75,
+            "SlidingTackle": 80
+        },
+        
+        "Dribbling": {
+            "Agility": 76, 
+            "Balance": 75,
+            "Positioning": 72,
+            "BallControl": 78,
+            "Dribbling": 78
+        },
+
+        "Passing": {
+            "Vision": 76,
+            "Crossing": 82,
+            "LongPassing": 70,
+            "ShortPassing": 82,
+            "Curve": 78
+        },   
+
+        "Shotting": {
+            "Finishing": 64,
+            "FKAccuracy": 72,
+            "Heading": 69,
+            "ShotPower": 61,
+            "LongShots": 64,
+            "Volleys": 64,
+            "Penalties": 70
+        },
+
+        "Pace": {
+            "Acceleration": 83,
+            "SprintSpeed": 82
+        },
+
+        "Goalkeeper": {
+            "Diving": 10,
+            "Handling": 10,
+            "Kicking": 10,
+            "Reflexes": 10,
+            "Positioning": 10
+        }
     }
 }
