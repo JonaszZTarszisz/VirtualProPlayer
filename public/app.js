@@ -37,13 +37,6 @@ class ControlPanel {
             let index = this.positions.indexOf(value);
             if(index <= 0) index = this.positions.length;
             this.position.innerHTML = this.positions[index-1];
-            if(this.position.innerHTML === "GK") {
-                document.getElementById("shottingButton").classList.add("d-none");
-                document.getElementById("goalkeeperButton").classList.remove("d-none");
-            } else {
-                document.getElementById("goalkeeperButton").classList.add("d-none");
-                document.getElementById("shottingButton").classList.remove("d-none");
-            }
             this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
@@ -52,13 +45,6 @@ class ControlPanel {
             let index = this.positions.indexOf(value);
             if(index >= this.positions.length - 1) index = -1;
             this.position.innerHTML = this.positions[index+1];
-            if(this.position.innerHTML === "GK") {
-                document.getElementById("shottingButton").classList.add("d-none");
-                document.getElementById("goalkeeperButton").classList.remove("d-none");
-            } else {
-                document.getElementById("goalkeeperButton").classList.add("d-none");
-                document.getElementById("shottingButton").classList.remove("d-none");
-            }
             this.setAttributes(this.position.innerHTML, this.attributes, this.attributesHeightChanges, this.attributesWeightChanges, this.heightLimit, this.weightLimit);
         });
 
