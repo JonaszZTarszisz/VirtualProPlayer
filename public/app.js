@@ -8,8 +8,7 @@ class ControlPanel {
     this.previousStep = document.querySelectorAll(".stepPrevious");
     this.nextStep = document.querySelectorAll(".stepNext");
     this.buffSkill = document.querySelectorAll(".buffSkill");
-    this.physcialPanel = document.getElementById("physcialPanel");
-    this.mainPageAttributes = document.getElementById("attributes")
+    this.mainPageAttributes = document.getElementById("attributes");
     this.mainPage = document.getElementById("mainPage");
     this.attributes = null;
     this.attributesHeightChanges = null;

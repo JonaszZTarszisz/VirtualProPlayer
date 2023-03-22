@@ -501,5 +501,117 @@
             "Reflexes": [0, 0, 0, 0, 0, 0],
             "Positioning": [0, 0, 0, 0, 0, 0]
         }
+    },
+
+    "CF": {
+        "Physicality": {
+            "Jumping": [0, 1, 3, 1, -1, -3],
+            "Stamina": [0, 0, 0, 0, 0, 0],
+            "Strenght": [0, 0, 1, 1, 2, 2],
+            "Reactions": [0, 0, 0, 0, 0, 0],
+            "Agression": [0, 0, 0, 0, 0, 0]
+        },
+
+        "Defence": {
+            "Interceptions": [0, 0, 0, 0, 0, 0],
+            "Marking": [0, 0, 0, 0, 0, 0],
+            "StandingTackle": [0, 0, 0, 0, 0, 0],
+            "SlidingTackle": [0, 0, 0, 0, 0, 0]
+        },
+        
+        "Dribbling": {
+            "Agility": [0, -1, -2, -3, -4, -5], 
+            "Balance": [0, 0, 1, 1, 2, 2],
+            "Positioning": [0, 0, 0, 0, 0, 0],
+            "BallControl": [0, 0, 0, 0, 0, 0],
+            "Dribbling": [0, 0, -1, -1, -2, -2]
+        },
+
+        "Passing": {
+            "Vision": [0, 0, 0, 0, 0, 0],
+            "Crossing": [0, 0, 0, 0, 0, 0],
+            "LongPassing": [0, 1, 2, 3, 4, 5],
+            "ShortPassing": [0, -1, -2, -2, -3, -4],
+            "Curve": [0, 0, 0, 0, 0, 0]
+        },   
+
+        "Shotting": {
+            "Finishing": [0, 0, 0, 0, 0, 0],
+            "FKAccuracy": [0, 0, 1, 1, 2, 2],
+            "Heading": [0, 0, 1, 2, 3, 4],
+            "ShotPower": [0, 0, 1, 1, 2, 2],
+            "LongShots": [0, 0, 1, 1, 2, 2],
+            "Volleys": [0, 0, 1, 1, 2, 2],
+            "Penalties": [0, 0, 0, 1, 1, 1]
+        },
+
+        "Pace": {
+            "Acceleration": [0, -1, -2, -3, -4, -5],
+            "SprintSpeed": [0, 1, 2, 2, 1, 0]
+        },
+
+        "Goalkeeper": {
+            "Diving": [0, 0, 0, 0, 0, 0],
+            "Handling": [0, 0, 0, 0, 0, 0],
+            "Kicking": [0, 0, 0, 0, 0, 0],
+            "Reflexes": [0, 0, 0, 0, 0, 0],
+            "Positioning": [0, 0, 0, 0, 0, 0]
+        }
+    },
+
+    "ST": {
+        "Physicality": {
+            "Jumping": [0, 1, 3, 1, -1, -3],
+            "Stamina": [0, 0, 0, 0, 0, 0],
+            "Strenght": [0, 1, 2, 3, 4, 5],
+            "Reactions": [0, 0, 0, 0, 0, 0],
+            "Agression": [0, 0, 0, 0, 0, 0]
+        },
+
+        "Defence": {
+            "Interceptions": [0, 0, 0, 0, 0, 0],
+            "Marking": [0, 0, 0, 0, 0, 0],
+            "StandingTackle": [0, 0, 0, 0, 0, 0],
+            "SlidingTackle": [0, 0, 0, 0, 0, 0]
+        },
+        
+        "Dribbling": {
+            "Agility": [0, -1, -2, -3, -4, -5], 
+            "Balance": [0, 0, 1, 1, 2, 2],
+            "Positioning": [0, 0, 0, -1, -1, -1],
+            "BallControl": [0, 0, 0, 0, 0, 0],
+            "Dribbling": [0, 0, -1, -1, -2, -2]
+        },
+
+        "Passing": {
+            "Vision": [0, 0, 0, 0, 0, 0],
+            "Crossing": [0, 0, 0, 0, 0, 0],
+            "LongPassing": [0, 1, 2, 3, 4, 5],
+            "ShortPassing": [0, -1, -2, -2, -3, -3],
+            "Curve": [0, 0, 0, 0, 0, 0]
+        },   
+
+        "Shotting": {
+            "Finishing": [0, 0, 0, 1, 1, 1],
+            "FKAccuracy": [0, 0, 1, 1, 2, 2],
+            "Heading": [0, 0, 1, 1, 2, 3],
+            "ShotPower": [0, 0, 1, 1, 2, 2],
+            "LongShots": [0, 0, 1, 1, 2, 2],
+            "Volleys": [0, 0, 1, 1, 2, 2],
+            "Penalties": [0, 0, 0, 1, 1, 1]
+        },
+
+        "Pace": {
+            "Acceleration": [0, -1, -2, -3, -4, -5],
+            "SprintSpeed": [0, 1, 2, 2, 1, 0]
+        },
+
+        "Goalkeeper": {
+            "Diving": [0, 0, 0, 0, 0, 0],
+            "Handling": [0, 0, 0, 0, 0, 0],
+            "Kicking": [0, 0, 0, 0, 0, 0],
+            "Reflexes": [0, 0, 0, 0, 0, 0],
+            "Positioning": [0, 0, 0, 0, 0, 0]
+        }
     }
 }
