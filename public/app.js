@@ -295,6 +295,7 @@ class ControlPanel {
         let passingSkill =  Math.round((basicVision + basicCrossing + basicLongPassing + basicShortPassing + basicCurve)/5);
         let shottingSkill =  Math.round((basicFinishing + basicFkaccuracy + basicHeading + basicShotPower + basicLongShots + basicVolleys + basicPenalties)/7);
         let paceSkill =  Math.round((basicAcceleration + basicSprintSpeed)/2);
+        let goalkeppingSkill =  Math.round((basicDiving + basicHandling + basicKicking + basicReflexes + basicKeeperPositioning)/5);
 
         document.querySelector("#physcialSkill p progress").setAttribute("value", physcialSkill);
         document.querySelector("#defendingSkill p progress").setAttribute("value", defendingSkill);
@@ -302,6 +303,7 @@ class ControlPanel {
         document.querySelector("#passingSkill p progress").setAttribute("value", passingSkill);
         document.querySelector("#shottingSkill p progress").setAttribute("value", shottingSkill);
         document.querySelector("#paceSkill p progress").setAttribute("value", paceSkill);
+        document.querySelector("#goalkeppingSkill p progress").setAttribute("value", goalkeppingSkill);
 
         document.querySelector("#physcialSkill .skillRating").innerHTML = physcialSkill;
         document.querySelector("#defendingSkill .skillRating").innerHTML = defendingSkill;
@@ -309,6 +311,7 @@ class ControlPanel {
         document.querySelector("#passingSkill .skillRating").innerHTML = passingSkill;
         document.querySelector("#shottingSkill .skillRating").innerHTML = shottingSkill;
         document.querySelector("#paceSkill .skillRating").innerHTML = paceSkill;
+        document.querySelector("#goalkeppingSkill .skillRating").innerHTML = goalkeppingSkill;
     }
     
 }
