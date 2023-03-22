@@ -255,6 +255,60 @@ class ControlPanel {
         document.querySelector("#reflexes .buffSkillRating").innerHTML = basicReflexes;
         document.querySelector("#keeperPositioning .buffSkillRating").innerHTML = basicKeeperPositioning;
 
+        document.querySelector("#jumping .buffSkillProgressBar progress").setAttribute("value", basicJumping);
+        document.querySelector("#stamina .buffSkillProgressBar progress").setAttribute("value", basicStamina);
+        document.querySelector("#strenght .buffSkillProgressBar progress").setAttribute("value", basicStrenght);
+        document.querySelector("#reactions .buffSkillProgressBar progress").setAttribute("value", basicReactions);
+        document.querySelector("#agression .buffSkillProgressBar progress").setAttribute("value", basicAgression);
+        document.querySelector("#interceptions .buffSkillProgressBar progress").setAttribute("value", basicInterceptions);
+        document.querySelector("#marking .buffSkillProgressBar progress").setAttribute("value", basicMarking);
+        document.querySelector("#standingTackle .buffSkillProgressBar progress").setAttribute("value", basicStandingTackle);
+        document.querySelector("#slidingTackle .buffSkillProgressBar progress").setAttribute("value", basicSlidingTackle);
+        document.querySelector("#agility .buffSkillProgressBar progress").setAttribute("value", basicAgility);
+        document.querySelector("#balance .buffSkillProgressBar progress").setAttribute("value", basicBalance);
+        document.querySelector("#positioning .buffSkillProgressBar progress").setAttribute("value", basicPositioning);
+        document.querySelector("#ballControl .buffSkillProgressBar progress").setAttribute("value", basicBallControl);
+        document.querySelector("#dribbling .buffSkillProgressBar progress").setAttribute("value", basicDribbling);
+        document.querySelector("#vision .buffSkillProgressBar progress").setAttribute("value", basicVision);
+        document.querySelector("#crossing .buffSkillProgressBar progress").setAttribute("value", basicCrossing);
+        document.querySelector("#longPassing .buffSkillProgressBar progress").setAttribute("value", basicLongPassing);
+        document.querySelector("#shortPassing .buffSkillProgressBar progress").setAttribute("value", basicShortPassing);
+        document.querySelector("#curve .buffSkillProgressBar progress").setAttribute("value", basicCurve);
+        document.querySelector("#finishing .buffSkillProgressBar progress").setAttribute("value", basicFinishing);
+        document.querySelector("#fkaccuracy .buffSkillProgressBar progress").setAttribute("value", basicFkaccuracy);
+        document.querySelector("#heading .buffSkillProgressBar progress").setAttribute("value", basicHeading);
+        document.querySelector("#shotPower .buffSkillProgressBar progress").setAttribute("value", basicShotPower);
+        document.querySelector("#longShots .buffSkillProgressBar progress").setAttribute("value", basicLongShots);
+        document.querySelector("#volleys .buffSkillProgressBar progress").setAttribute("value", basicVolleys);
+        document.querySelector("#penalties .buffSkillProgressBar progress").setAttribute("value", basicPenalties);
+        document.querySelector("#acceleration .buffSkillProgressBar progress").setAttribute("value", basicAcceleration);
+        document.querySelector("#sprintSpeed .buffSkillProgressBar progress").setAttribute("value", basicSprintSpeed);
+        document.querySelector("#diving .buffSkillProgressBar progress").setAttribute("value", basicDiving);
+        document.querySelector("#handling .buffSkillProgressBar progress").setAttribute("value", basicHandling);
+        document.querySelector("#kicking .buffSkillProgressBar progress").setAttribute("value", basicKicking);
+        document.querySelector("#reflexes .buffSkillProgressBar progress").setAttribute("value", basicReflexes);
+        document.querySelector("#keeperPositioning .buffSkillProgressBar progress").setAttribute("value", basicKeeperPositioning);
+
+        let physcialSkill = Math.round((basicJumping + basicStamina + basicStrenght + basicReactions + basicAgression)/5);
+        let defendingSkill =  Math.round((basicInterceptions + basicMarking + basicStandingTackle + basicSlidingTackle)/4);
+        let dribblingSkill =  Math.round((basicAgility + basicBalance + basicPositioning + basicBallControl + basicDribbling)/5);
+        let passingSkill =  Math.round((basicVision + basicCrossing + basicLongPassing + basicShortPassing + basicCurve)/5);
+        let shottingSkill =  Math.round((basicFinishing + basicFkaccuracy + basicHeading + basicShotPower + basicLongShots + basicVolleys + basicPenalties)/7);
+        let paceSkill =  Math.round((basicAcceleration + basicSprintSpeed)/2);
+
+        document.querySelector("#physcialSkill p progress").setAttribute("value", physcialSkill);
+        document.querySelector("#defendingSkill p progress").setAttribute("value", defendingSkill);
+        document.querySelector("#dribblingSkill p progress").setAttribute("value", dribblingSkill);
+        document.querySelector("#passingSkill p progress").setAttribute("value", passingSkill);
+        document.querySelector("#shottingSkill p progress").setAttribute("value", shottingSkill);
+        document.querySelector("#paceSkill p progress").setAttribute("value", paceSkill);
+
+        document.querySelector("#physcialSkill .skillRating").innerHTML = physcialSkill;
+        document.querySelector("#defendingSkill .skillRating").innerHTML = defendingSkill;
+        document.querySelector("#dribblingSkill .skillRating").innerHTML = dribblingSkill;
+        document.querySelector("#passingSkill .skillRating").innerHTML = passingSkill;
+        document.querySelector("#shottingSkill .skillRating").innerHTML = shottingSkill;
+        document.querySelector("#paceSkill .skillRating").innerHTML = paceSkill;
     }
     
 }
